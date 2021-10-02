@@ -6,6 +6,7 @@ const YAML = require('yamljs');
 const swaggerDocument = YAML.load('./swagger.yaml');
 const conversor = require('./convert')
 const bodyParser = require('body-parser');
+const APP_PORT = 8090;
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.set('view engine', 'ejs');
@@ -44,6 +45,6 @@ app.post('/', (req, res) => {
     res.render('index', {valorConvertido: resultado});
  });
 
-app.listen(8080, () => {
-    console.log("Servidor rodando na porta 8080");
+app.listen(APP_PORT, () => {
+    console.log("Servidor rodando na porta " + APP_PORT);
 });
